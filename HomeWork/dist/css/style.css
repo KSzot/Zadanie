@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 68.75em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #655a56;
+}
+
+.header {
+  height: 8vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(30, 144, 255, 1),
+    rgba(0, 0, 128, 1)
+  );
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header__logo {
+  height: 4.5rem;
+  display: block;
+  background-size: cover;
+}
+.heading-primary {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.btn,
+.btn:visited,
+.btn:link {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 2rem;
+  display: inline-block;
+  border-radius: 0.2rem;
+  font-size: 1.3rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.btn--lightblue,
+.btn--lightblue::after {
+  background-color: rgba(30, 144, 255, 1);
+  color: #fff;
+}
+.container {
+  max-width: 130rem;
+  margin: 2vw auto;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+  min-height: 70vh;
+  overflow: hidden;
+}
