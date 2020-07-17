@@ -71,13 +71,26 @@ body {
   background-color: rgba(30, 144, 255, 1);
   color: #fff;
 }
+.btn--add {
+  display: inline-block;
+}
+.btn--delete {
+  display: none;
+}
+.btn--edit {
+  display: none;
+}
+.btn--back {
+  display: none;
+  float: right;
+}
 .container {
   max-width: 130rem;
   margin: 2vw auto;
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
-  min-height: 70vh;
+  min-height: 40vh;
   overflow: hidden;
 }
 
@@ -227,4 +240,9 @@ body {
 }
 .form__text {
   font-size: 1.3rem;
+}
+
+.section__btn {
+  display: block;
+  margin: 0 5rem;
 }
