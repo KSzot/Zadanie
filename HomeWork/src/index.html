@@ -30,7 +30,60 @@
       </div>
     </header>
     <div class="container">
-      <h1>Czy to dziala</h1>
+      <div class="text-div">
+        <h1>Add product</h1>
+      </div>
+      <div class="row">
+        <div class="col-1-of-6">
+          <h2 class="heading-secondary">Category</h2>
+          <div class="custom-select-wrapper">
+            <div class="custom-select">
+              <div class="custom-select__trigger">
+                <span>Tesla</span>
+                <div class="arrow"></div>
+              </div>
+              <div class="custom-options">
+                <span class="custom-option selected" data-value="tesla"
+                  >Teslaaa</span
+                >
+                <span class="custom-option" data-value="volvo">Volvo</span>
+                <span class="custom-option" data-value="mercedes"
+                  >Mercedes</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="col-5-of-6">
+          <div class="col-1-of-2">
+            <div>
+              <label class="form__text" for="item-name">Name Product</label>
+            </div>
+
+            <input
+              class="form__input"
+              type="text"
+              id="item-name"
+              placeholder="Add Products"
+            />
+          </div>
+          <div class="col-1-of-2">
+            <div>
+              <label class="form__text" step="1" for="item-colories"
+                >Price</label
+              >
+            </div>
+
+            <input
+              class="form__input"
+              type="number"
+              id="item-calories"
+              placeholder="Price"
+            />
+          </div>
+        </form>
+      </div>
+      <button class="btn btn--lightblue">Clear all</button>
     </div>
   </body>
 </html>
