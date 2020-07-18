@@ -75,13 +75,20 @@ body {
   display: inline-block;
 }
 .btn--delete {
-  display: none;
+  background-color: red;
 }
 .btn--edit {
-  display: none;
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  position: absolute;
+  right: 1rem;
+  top: 1.25rem;
+}
+.btn--update {
+  background-color: yellow;
 }
 .btn--back {
-  display: none;
+  background-color: blue;
   float: right;
 }
 .container {
@@ -258,14 +265,16 @@ body {
   list-style: none;
 }
 .product__item:first-of-type {
-  padding: 1rem 2rem;
+  padding: 2rem 2.5rem;
   border: 1px solid #9e9e9e;
+  position: relative;
   text-align: left;
 }
 .product__item {
-  padding: 1rem 2rem;
+  padding: 2rem 2.5rem;
   border: 1px solid #9e9e9e;
   border-top: none;
+  position: relative;
   text-align: left;
 }
 .product__item--span {

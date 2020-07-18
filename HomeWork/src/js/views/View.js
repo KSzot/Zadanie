@@ -5,6 +5,11 @@ export default class View {
     this.values = document.querySelectorAll('input');
     this.listProduct = document.querySelectorAll('ul');
     this.totalPrice = document.querySelector('.heading-secondary span');
+    this.buttonAdd = document.querySelector('.btn--add');
+    this.buttonDelete = document.querySelector('.btn--delete');
+    this.buttonUpdate = document.querySelector('.btn--update');
+    this.buttonBack = document.querySelector('.btn--back');
+    this.buttonDeleteAll = document.querySelector('.header__button-box a');
   }
 
   get _getValues() {
@@ -20,7 +25,6 @@ export default class View {
         product: this.values[0].value,
         price: this.values[1].value,
       };
-      console.log(this.category.dataset.value);
       return obj;
     }
   }
@@ -30,6 +34,19 @@ export default class View {
     this.values[1].value = '';
   }
 
+  _onDisplayInlineBlock() {
+    this.buttonAdd.style.display = 'none';
+    this.buttonBack.style.display = 'inline-block';
+    this.buttonDelete.style.display = 'inline-block';
+    this.buttonUpdate.style.display = 'inline-block';
+  }
+
+  _onDisplayNone() {
+    this.buttonAdd.style.display = 'inline-block';
+    this.buttonBack.style.display = 'none';
+    this.buttonDelete.style.display = 'none';
+    this.buttonUpdate.style.display = 'none';
+  }
   createElement(tag, className) {
     const element = document.createElement(tag);
 
@@ -66,23 +83,26 @@ export default class View {
   displayProducts(listProducts) {
     let i = 0;
     let countPrice = 0;
-    while (i < 3) {
+    while (i < this.listProduct.length) {
       while (this.listProduct[i].firstChild) {
         this.listProduct[i].removeChild(this.listProduct[i].firstChild);
       }
       i++;
     }
     if (listProducts.length === 0) {
-      console.log('Pusto');
+      this.totalPrice.textContent = `${countPrice} $`;
     } else {
       listProducts.forEach((element) => {
         const li = this.createElement('li', 'product__item');
         li.id = element.id;
         const product = this.createElement('span', 'product__item--span');
         const price = this.createElement('span', 'product__item--span');
+        const button = this.createElement('a', 'btn');
+        button.classList.add('btn--edit');
+        button.textContent = 'Edit';
         product.textContent = element.product;
         price.textContent = `${element.price} $`;
-        li.append(product, price);
+        li.append(product, price, button);
         const category = element.category;
         this.elementUl = document.getElementById(category);
         countPrice += parseInt(element.price);
@@ -103,11 +123,43 @@ export default class View {
       }
     });
   }
-  _flattenDeep(arr1) {
-    return arr1.reduce(
-      (acc, val) =>
-        Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val),
-      [],
-    );
+
+  bindToButtonEdit(handler) {
+    this.listProduct.forEach((element) => {
+      element.addEventListener('click', (event) => {
+        if (event.target.className === 'btn btn--edit') {
+          const id = event.target.parentNode.id;
+          this._onDisplayInlineBlock();
+          handler(id);
+        }
+      });
+    });
+  }
+
+  bindToDisplayNone() {
+    this.buttonBack.addEventListener('click', () => {
+      this._onDisplayNone();
+    });
+  }
+
+  bindDeleteProduct(handler) {
+    this.buttonDelete.addEventListener('click', () => {
+      handler();
+      this._onDisplayNone();
+    });
+  }
+  bindUpdateProduct(handler) {
+    this.buttonUpdate.addEventListener('click', () => {
+      if (this._getValues) {
+        handler(this._getValues);
+        this._resetInput();
+        this._onDisplayNone();
+      }
+    });
+  }
+  bindDeleteAllProduct(handler) {
+    this.buttonDeleteAll.addEventListener('click', () => {
+      handler();
+    });
   }
 }

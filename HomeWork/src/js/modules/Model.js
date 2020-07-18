@@ -6,6 +6,10 @@ export default class Model {
     ];
   }
 
+  _updateFun(lists) {
+    this.onListChanged(lists);
+  }
+
   addProduct(obj) {
     const { category, product, price } = obj;
     const element = {
@@ -16,20 +20,7 @@ export default class Model {
     };
     console.log('Work');
     this.lists.push(element);
-    this.onListChanged(this.lists);
-  }
-
-  editProduct(id, updateName, updateProduct, updatePrice) {
-    this.lists = this.lists.map((item) =>
-      item.id === id
-        ? {
-            id: item.id,
-            category: updateName,
-            product: updateProduct,
-            price: updatePrice,
-          }
-        : item,
-    );
+    this._updateFun(this.lists);
   }
 
   deleteProduct(id) {
@@ -38,5 +29,25 @@ export default class Model {
 
   bindToProductListChanged(callback) {
     this.onListChanged = callback;
+  }
+  onCurrentItem(id) {
+    this.currentItem = id;
+  }
+  onDeleteItem() {
+    this.lists = this.lists.filter((item) => item.id != this.currentItem);
+    this._updateFun(this.lists);
+  }
+  onUpdateItem(obj) {
+    const { category, product, price } = obj;
+    this.lists = this.lists.map((item) =>
+      item.id == this.currentItem
+        ? { id: item.id, category: category, product: product, price: price }
+        : item,
+    );
+    this._updateFun(this.lists);
+  }
+  onDeleteAllItem() {
+    this.lists = [];
+    this._updateFun(this.lists);
   }
 }
