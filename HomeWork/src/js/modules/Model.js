@@ -1,13 +1,11 @@
 export default class Model {
   constructor() {
-    this.lists = [
-      { id: 1, category: 'Vegetables', product: 'Carrot', price: '12' },
-      { id: 2, category: 'Diary', product: 'CNieast', price: '1233' },
-    ];
+    this.lists = JSON.parse(localStorage.getItem('listOfProducts')) || [];
   }
 
   _updateFun(lists) {
     this.onListChanged(lists);
+    localStorage.setItem('listOfProducts', JSON.stringify(lists));
   }
 
   addProduct(obj) {
