@@ -4,7 +4,7 @@ export default class View {
     this.category = document.querySelector('.custom-select__trigger span');
     this.values = document.querySelectorAll('input');
     this.listProduct = document.querySelectorAll('ul');
-    this.totalPrice = document.querySelector('.heading-secondary span');
+    this.totalSum = document.querySelectorAll('.heading-secondary span');
     this.buttonAdd = document.querySelector('.btn--add');
     this.buttonDelete = document.querySelector('.btn--delete');
     this.buttonUpdate = document.querySelector('.btn--update');
@@ -20,10 +20,14 @@ export default class View {
     ) {
       return null;
     } else {
+      this.checkBox = document.querySelector(
+        'input[type="radio"]:checked',
+      ).parentElement.innerText;
       const obj = {
         category: this.category.textContent,
         product: this.values[0].value,
-        price: this.values[1].value,
+        count: this.checkBox.trim() === 'Count' ? this.values[1].value : 0,
+        weight: this.checkBox.trim() === 'Weight' ? this.values[1].value : 0,
       };
       return obj;
     }
@@ -82,7 +86,8 @@ export default class View {
 
   displayProducts(listProducts) {
     let i = 0;
-    let countPrice = 0;
+    let countPieces = 0;
+    let countWeight = 0;
     while (i < this.listProduct.length) {
       while (this.listProduct[i].firstChild) {
         this.listProduct[i].removeChild(this.listProduct[i].firstChild);
@@ -90,7 +95,8 @@ export default class View {
       i++;
     }
     if (listProducts.length === 0) {
-      this.totalPrice.textContent = `${countPrice} $`;
+      this.totalSum[0].textContent = `${countPieces} pieces`;
+      this.totalSum[1].textContent = `${countWeight} kg`;
     } else {
       listProducts.forEach((element) => {
         const li = this.createElement('li', 'product__item');
@@ -101,20 +107,24 @@ export default class View {
         button.classList.add('btn--edit');
         button.textContent = 'Edit';
         product.textContent = element.product;
-        price.textContent = `${element.price} $`;
+        price.textContent =
+          element.count === 0 ? element.weight : element.count;
         li.append(product, price, button);
         const category = element.category;
         this.elementUl = document.getElementById(category);
-        countPrice += parseInt(element.price);
+        countPieces += parseInt(element.count);
+        countWeight += parseInt(element.weight);
         this.elementUl.appendChild(li);
       });
-      this.totalPrice.textContent = `${countPrice} $`;
+      this.totalSum[0].textContent = `${countPieces} pieces`;
+      this.totalSum[1].textContent = `${countWeight} kg`;
     }
   }
   bindAddProduct(handler) {
     document.querySelector('.btn--add').addEventListener('click', (event) => {
       if (event.target.className === 'btn btn--add btn--lightblue') {
         if (this._getValues) {
+          console.log(this._getValues);
           handler(this._getValues);
           this._resetInput();
         } else {

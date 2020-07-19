@@ -9,12 +9,13 @@ export default class Model {
   }
 
   addProduct(obj) {
-    const { category, product, price } = obj;
+    const { category, product, count, weight } = obj;
     const element = {
       id: new Date().getTime(),
       category: category,
       product: product,
-      price: price,
+      count: count,
+      weight: weight,
     };
     console.log('Work');
     this.lists.push(element);
@@ -36,10 +37,16 @@ export default class Model {
     this._updateFun(this.lists);
   }
   onUpdateItem(obj) {
-    const { category, product, price } = obj;
+    const { category, product, count, weight } = obj;
     this.lists = this.lists.map((item) =>
       item.id == this.currentItem
-        ? { id: item.id, category: category, product: product, price: price }
+        ? {
+            id: item.id,
+            category: category,
+            product: product,
+            count: count,
+            weight: weight,
+          }
         : item,
     );
     this._updateFun(this.lists);
