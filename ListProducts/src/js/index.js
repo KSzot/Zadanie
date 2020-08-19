@@ -1,4 +1,10 @@
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/solid';
+import '@fortawesome/fontawesome-free/js/regular';
+import '@fortawesome/fontawesome-free/js/brands';
+
 import printMe from './print';
+import '../css/main.scss';
 function component() {
   const element = document.createElement('div');
   const button = document.createElement('button');

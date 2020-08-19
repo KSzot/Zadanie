@@ -1,0 +1,26 @@
+.header {
+  height: 6rem;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-blue-first,
+    $color-blue-second
+  );
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @include respond(phone) {
+    height: 4rem;
+  }
+
+  &__logo-box {
+    @include respond(phone) {
+      display: none;
+    }
+  }
+  &__button-box {
+    @include respond(phone) {
+      display: none;
+    }
+  }
+}

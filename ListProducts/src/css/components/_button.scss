@@ -1,0 +1,31 @@
+.btn {
+  &,
+  &:visited,
+  &:link {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.3rem 1.8rem;
+    display: inline-block;
+    border-radius: 0.2rem;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  &--lightblue {
+    background-color: $color-blue-first;
+    color: #fff;
+  }
+}
