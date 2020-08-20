@@ -23,31 +23,89 @@
         <div class="u-center-text u-margin-top-small">
           <h2 class="heading-secondary">Add Product</h2>
         </div>
-        <div class="container--input">
-          <div class="select-box">
-            <div class="options-container">
-              <div class="option">
-                <input
-                  type="radio"
-                  class="radio"
-                  id="vegetables"
-                  name="category"
-                />
-                <label for="vegetables">Vegetables</label>
-              </div>
+        <div class="container--primary">
+          <div class="container__category">
+            <div class="select-box">
+              <div class="options-container">
+                <div class="option">
+                  <input
+                    type="radio"
+                    class="radio"
+                    id="vegetables"
+                    name="category"
+                  />
+                  <label for="vegetables">Vegetables</label>
+                </div>
 
-              <div class="option">
-                <input type="radio" class="radio" id="meat" name="category" />
-                <label for="meat">Meat</label>
-              </div>
+                <div class="option">
+                  <input type="radio" class="radio" id="meat" name="category" />
+                  <label for="meat">Meat</label>
+                </div>
 
-              <div class="option">
-                <input type="radio" class="radio" id="diary" name="category" />
-                <label for="diary">Diary</label>
+                <div class="option">
+                  <input
+                    type="radio"
+                    class="radio"
+                    id="diary"
+                    name="category"
+                  />
+                  <label for="diary">Diary</label>
+                </div>
+              </div>
+              <div class="selected">
+                Select Category
               </div>
             </div>
-            <div class="selected">
-              Select Category
+          </div>
+          <div class="container__input">
+            <div class="container__input--main">
+              <label class="form__text" for="item-name">Name Product</label>
+              <input
+                class="form__input"
+                type="text"
+                id="item-name"
+                placeholder="Add Products"
+              />
+            </div>
+            <div class="container__input--main">
+              <label class="form__text" step="1" for="item-colories"
+                >Price</label
+              >
+
+              <input
+                class="form__input"
+                type="number"
+                min="0"
+                step="1"
+                id="item-price"
+                placeholder="Price"
+              />
+            </div>
+          </div>
+          <div class="container__radio">
+            <div class="form__radio-group">
+              <input
+                type="radio"
+                class="form__radio-input"
+                id="count"
+                name="size"
+                checked="checked"
+              />
+              <label for="count" class="form__radio-label">
+                <span class="form__radio-button"></span>
+                Count</label
+              >
+            </div>
+            <div class="form__radio-group">
+              <input
+                type="radio"
+                class="form__radio-input"
+                id="weight"
+                name="size"
+              />
+              <label for="weight" class="form__radio-label">
+                <span class="form__radio-button"></span>Weight</label
+              >
             </div>
           </div>
         </div>

@@ -6,8 +6,48 @@
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
   min-height: 50vh;
   overflow: hidden;
+  @include respond(tab-port-small) {
+    min-height: 60vh;
+  }
 
-  &--input {
-    padding: 32px;
+  &__category {
+    height: 4rem;
+    flex: 1 1 25%;
+    @include respond(tab-port-small) {
+      order: 1;
+    }
+  }
+  &__input {
+    display: flex;
+    flex: 5 60 70%;
+    @include respond(tab-port-small) {
+      flex: 10 1 100%;
+      order: 0;
+    }
+    &--main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+  }
+  &__radio {
+    flex: 1 1 10%;
+    @include respond(tab-port-small) {
+      display: flex;
+      margin-top: 2rem;
+      flex-direction: column;
+      align-items: center;
+      order: 2;
+    }
+  }
+}
+
+.container--primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  @include respond(tab-port-small) {
+    flex-wrap: wrap;
   }
 }

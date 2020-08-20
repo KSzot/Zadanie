@@ -1,0 +1,57 @@
+.form__input {
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rbga($color-white, 0.5);
+  border: none;
+  border-bottom: 1px solid $color-gray-first;
+  width: 80%;
+  display: block;
+}
+.form__input:active,
+.form__input:focus {
+  outline: none;
+  border-bottom: 2px solid $color-blue-second;
+}
+.form__text {
+  font-size: 1.3rem;
+  color: $color-gray-first;
+  align-self: center;
+  width: 80%;
+}
+
+.form__radio-label {
+  color: $color-gray-first;
+  font-size: 1.4rem;
+}
+
+.section__btn {
+  display: block;
+  margin: 0 6.5rem;
+}
+
+.product {
+  display: block;
+  min-width: 20%;
+  margin: 2rem 3rem;
+  text-align: center;
+}
+.product > ul {
+  list-style: none;
+}
+.product__item:first-of-type {
+  padding: 2rem 2.5rem;
+  border: 1px solid #9e9e9e;
+  position: relative;
+  text-align: left;
+}
+.product__item {
+  padding: 2rem 2.5rem;
+  border: 1px solid #9e9e9e;
+  border-top: none;
+  position: relative;
+  text-align: left;
+}
+.product__item--span {
+  padding: 0 1rem;
+  font-size: 1.3rem;
+}
