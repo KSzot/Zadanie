@@ -5,6 +5,19 @@ import '@fortawesome/fontawesome-free/js/brands';
 
 import printMe from './print';
 import '../css/main.scss';
+
+import View from './views/View';
+
+class Controller {
+  constructor(View) {
+    this.view = View;
+    this.view.bindDropdownShow();
+    this.view.bindSelectedCategory();
+  }
+}
+
+const app = new Controller(new View());
+
 function component() {
   const element = document.createElement('div');
   const button = document.createElement('button');

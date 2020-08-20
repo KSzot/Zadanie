@@ -38,6 +38,11 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader'],
+        options: {
+          outputPath: 'img/',
+          name: '[name].[ext]',
+          publicPath: '/',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
