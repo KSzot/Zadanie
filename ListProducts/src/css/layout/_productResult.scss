@@ -1,0 +1,36 @@
+.result {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contaier--product {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.product {
+  display: block;
+  min-width: 20%;
+  margin: 2rem 3rem;
+  text-align: center;
+}
+.product > ul {
+  list-style: none;
+}
+.product__item:first-of-type {
+  padding: 2rem 2.5rem;
+  border: 1px solid $color-gray-second;
+  position: relative;
+  text-align: left;
+}
+.product__item {
+  padding: 2rem 2.5rem;
+  border: 1px solid $color-gray-second;
+  border-top: none;
+  position: relative;
+  text-align: left;
+}
+.product__item--span {
+  padding: 0 1rem;
+  font-size: 1.3rem;
+}
