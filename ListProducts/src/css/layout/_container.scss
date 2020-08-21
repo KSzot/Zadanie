@@ -1,4 +1,6 @@
 .container {
+  display: flex;
+  flex-direction: column;
   max-width: 130rem;
   margin: 2vw auto;
   background-color: $color-white;
@@ -9,12 +11,16 @@
   @include respond(tab-port-small) {
     min-height: 60vh;
   }
+  @media screen and (max-width: 32.5em) {
+    min-height: 80vh;
+  }
 
   &__category {
     height: 4rem;
     flex: 1 1 25%;
     @include respond(tab-port-small) {
       order: 1;
+      margin-top: 2rem;
     }
   }
   &__input {
@@ -45,9 +51,22 @@
 
 .container--primary {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   @include respond(tab-port-small) {
     flex-wrap: wrap;
+  }
+}
+
+.container--secondary {
+  display: flex;
+  flex: 1;
+  margin: 0 5rem;
+  @include respond(tab-port-small) {
+    margin: 0 1rem;
+  }
+  @media screen and (max-width: 32.5em) {
+    flex-wrap: wrap;
+    align-content: flex-end;
   }
 }

@@ -13,6 +13,7 @@
     transition: all 0.2s;
     outline: none;
     transition: all 0.2s;
+    color: #fff;
   }
 
   &:hover {
@@ -26,6 +27,38 @@
 
   &--lightblue {
     background-color: $color-blue-first;
-    color: #fff;
+  }
+
+  &--add {
+    background-color: $color-blue-third;
+    align-self: flex-end;
+  }
+
+  &--back {
+    background-color: $color-blue-first;
+    align-self: flex-end;
+    margin-left: auto;
+    @media screen and (max-width: 32.5em) {
+      align-self: flex-end;
+    }
+  }
+
+  &--delete {
+    background-color: $color-danger;
+    align-self: flex-end;
+    @media screen and (max-width: 32.5em) {
+      align-self: flex-end;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &--update {
+    background-color: $color-warning;
+    align-self: flex-end;
+    margin-left: 1rem;
+    @media screen and (max-width: 32.5em) {
+      align-self: flex-end;
+      margin-bottom: 0.5rem;
+    }
   }
 }
