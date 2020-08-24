@@ -10,7 +10,7 @@
   align-items: center;
 
   @include respond(phone) {
-    height: 4rem;
+    height: 5rem;
   }
 
   &__logo-box {
@@ -20,7 +20,7 @@
   }
   &__button-box {
     @include respond(phone) {
-      display: none;
+      padding: 1rem 1.3rem;
     }
   }
 }
