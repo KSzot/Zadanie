@@ -9,10 +9,10 @@
   min-height: 50vh;
   overflow: hidden;
   @include respond(tab-port-small) {
-    min-height: 60vh;
+    min-height: 65vh;
   }
   @media screen and (max-width: 32.5em) {
-    min-height: 80vh;
+    min-height: 75vh;
   }
 
   &__category {
@@ -60,18 +60,12 @@
 
 .container--secondary {
   display: flex;
-  flex: 1;
-  margin: 0 5rem;
+  margin: auto 5rem;
   @include respond(tab-port-small) {
-    margin: 0 1rem;
+    margin: auto 1rem;
   }
   @media screen and (max-width: 32.5em) {
     flex-wrap: wrap;
     align-content: flex-end;
   }
 }
-
-// .section-result {
-//   display: flex;
-//   justify-content: center;
-// }
